@@ -2,7 +2,13 @@ import React, { useEffect, useRef, useState } from "react";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import useOutsideClick from "../utils/useOutsideClick";
-import { NavWrapper, PageContent, PageWrapper, SideBarWrapper } from "./style";
+import {
+  NavWrapper,
+  PageContent,
+  PageFooter,
+  PageWrapper,
+  SideBarWrapper,
+} from "./style";
 
 const MainLayout = ({ children }) => {
   const navMenuIconRef = useRef(null);
@@ -27,7 +33,7 @@ const MainLayout = ({ children }) => {
   }, [showSideMenu]);
 
   return (
-    <div style={{ height: "100%" }}>
+    <div style={{ height: "100%", width: "100%" }}>
       <NavWrapper>
         <Navbar
           ref={navMenuIconRef}
@@ -43,17 +49,10 @@ const MainLayout = ({ children }) => {
           <h1>search bar</h1>
           <div style={{ marginTop: "2rem" }}>{children}</div>
         </PageContent>
-        {/* <div
-          style={{
-            height: "200px",
-            backgroundColor: "green",
-            width: "100%",
-            gridColumnStart: 1,
-            gridColumnEnd: 3,
-          }}
-        >
-          hello
-        </div> */}
+
+        <PageFooter>
+          <div>Footer</div>
+        </PageFooter>
       </PageWrapper>
     </div>
   );
