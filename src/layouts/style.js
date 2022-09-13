@@ -3,7 +3,7 @@ import globalStyles from '../assets/global-styles'
 
 export const PageWrapper = styles.div`
 background-color: ${globalStyles.theme.colors.page_bg_color};
-min-height: calc(100% - 4rem - 1px);
+min-height: calc(100% - 1px);
 width: 100%;
 padding-top: 4rem;
 display: grid;
@@ -12,14 +12,13 @@ grid-template-rows: 1fr auto;
 
 @media (min-width: ${globalStyles.screens.md}){
   padding-top: 0;
-  min-height: calc(100% - 1px);
   grid-template-columns: 16rem auto;
   grid-template-rows: 1fr auto;
 };
 
 `
 
-export const NavWrapper = styles.div`
+export const NavWrapper = styles.nav`
   position: fixed;
   top: 0;
   width: 100%;
@@ -28,7 +27,7 @@ export const NavWrapper = styles.div`
     display: none;
   };
 `
-export const SideBarWrapper = styles.div`
+export const SideBarWrapper = styles.aside`
   background-color: ${globalStyles.theme.colors.bg_color};
   position: fixed;
   right: -16rem;
@@ -48,16 +47,19 @@ export const SideBarWrapper = styles.div`
   };
 `
 
-export const PageContent = styles.div`
-  padding: 0 1rem;
-  
-  background-color: ${globalStyles.theme.colors.page_bg_color};
-  @media (min-width: ${globalStyles.screens.md}){
-    padding: 0 3rem;
+export const PageContent = styles.section`
+  .page-wrapper{
+    padding: 0 1rem;
+    background-color: ${globalStyles.theme.colors.page_bg_color};
+    
+    @media (min-width: ${globalStyles.screens.md}){
+      padding: 0 2rem;
+    };
   };
+  
 `
 
-export const PageFooter = styles.div`
+export const PageFooter = styles.footer`
   @media (min-width: ${globalStyles.screens.md}){
     grid-column: 1 / 3;
     

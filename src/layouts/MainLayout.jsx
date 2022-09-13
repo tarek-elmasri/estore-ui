@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
+import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+import SearchBar from "../components/SearchBar";
 import Sidebar from "../components/Sidebar";
 import useOutsideClick from "../utils/useOutsideClick";
 import {
@@ -33,7 +35,7 @@ const MainLayout = ({ children }) => {
   }, [showSideMenu]);
 
   return (
-    <div style={{ height: "100%", width: "100%" }}>
+    <>
       <NavWrapper>
         <Navbar
           ref={navMenuIconRef}
@@ -46,15 +48,15 @@ const MainLayout = ({ children }) => {
         </SideBarWrapper>
 
         <PageContent ref={pageContentRef}>
-          <h1>search bar</h1>
-          <div style={{ marginTop: "2rem" }}>{children}</div>
+          <SearchBar />
+          <div className="page-wrapper">{children}</div>
         </PageContent>
 
         <PageFooter>
-          <div>Footer</div>
+          <Footer />
         </PageFooter>
       </PageWrapper>
-    </div>
+    </>
   );
 };
 

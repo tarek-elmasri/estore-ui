@@ -3,7 +3,7 @@ export default {
     colors: {
       page_bg_color: "#f2f3f4",
       bg_color: "#0a1433",
-      light_bg_color: "#172345",
+      light_bg_color: "#39435e",
       offwhite: "#dedce6",
     },
   },

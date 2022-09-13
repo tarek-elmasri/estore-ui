@@ -10,8 +10,7 @@ const Navbar = React.forwardRef((props, ref) => {
   const userMenuImageRef = useRef(null);
   const userMenuOutsideClick = useOutsideClick([userMenuRef, userMenuImageRef]);
 
-  const navTabClass = ({ isActive }) =>
-    `nav-tab ${isActive ? "nav-active" : null}`;
+  const navTabClass = ({ isActive }) => `nav-tab ${isActive && "nav-active"}`;
 
   useEffect(() => {
     if (userMenuOutsideClick) setShowUserMenu(false);
@@ -50,19 +49,14 @@ const Navbar = React.forwardRef((props, ref) => {
       </div>
 
       <UserMenu ref={userMenuRef}>
-        <NavLink className={navTabClass} to="/login">
+        <NavLink className={navTabClass} to="/home">
           <i className="ti ti-user"></i>
-          <span>tag</span>
+          <span>الملف الشخصي</span>
         </NavLink>
 
-        <NavLink className={navTabClass} to="/as">
-          <i className="ti ti-user"></i>
-          <span>tag</span>
-        </NavLink>
-
-        <NavLink className={navTabClass} to="/df">
-          <i className="ti ti-user"></i>
-          <span>tag</span>
+        <NavLink className={navTabClass} style={{ color: "red" }} to="/as">
+          <i className="ti ti-power"></i>
+          <span>تسجيل الخروج</span>
         </NavLink>
       </UserMenu>
     </NavbarContainer>
