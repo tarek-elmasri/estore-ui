@@ -10,7 +10,7 @@ import {
   PageFooter,
   PageWrapper,
   SideBarWrapper,
-} from "./style";
+} from "./MainLayout.style";
 
 const MainLayout = ({ children }) => {
   const navMenuIconRef = useRef(null);

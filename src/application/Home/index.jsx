@@ -13,15 +13,13 @@ const Home = () => {
       <h1>{user ? user.first_name : "no user"}</h1>
       <h1>test</h1>
       <button onClick={() => client.resetQueries(["users"])}>reload!</button>
-      <h1>test</h1>
-      <h1>test</h1>
-      <h1>test</h1>
-      <h1>test</h1>
+      <h1 style={{ fontSize: "3rem" }}>اختبار الخط</h1>
+      <h1 style={{ fontWeight: "normal", fontSize: "3rem" }}>اختبار الخط</h1>
+      <h1 style={{ fontWeight: "bold", fontSize: "3rem" }}>اختبار الخط</h1>
+      <h1 style={{ fontWeight: "400", fontSize: "3rem" }}>اختبار الخط</h1>
 
-      <h1>test</h1>
-      <h1>test</h1>
-
-      <h1>END</h1>
+      <p>p</p>
+      <small>small</small>
     </div>
   );
 };

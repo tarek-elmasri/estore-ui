@@ -1,5 +1,6 @@
 import { Suspense, lazy } from "react";
 import { useRoutes, Navigate } from "react-router-dom";
+import Login from "../application/Login";
 import MainLayout from "../layouts/MainLayout";
 import AuthenticatedRoute from "./AuthenticatedRoute";
 
@@ -29,6 +30,11 @@ const Router = () => {
           path: "/home",
           exact: true,
           element: createAuthenticatedRoute(HomeComponent),
+        },
+        {
+          path: "/auth",
+          exact: true,
+          element: <Login />,
         },
       ],
     },

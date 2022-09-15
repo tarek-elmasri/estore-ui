@@ -1,14 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import myfont from "./assets/fonts/Vazirmatn-Regular.ttf";
-
 export const GlobalStyle = createGlobalStyle`
-  @font-face {
-    font-family: "app-font";
-    src: local("app-font"),
-      url(${myfont}) format("truetype");
-    font-weight: bold;
-    font-style: normal;
-  }
 
 	html, body, div, span, applet, object, iframe,
 	h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -38,7 +29,7 @@ export const GlobalStyle = createGlobalStyle`
 	}
 	body {
 		line-height: 1.5;
-    font-family:  app-font, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
       'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
       sans-serif;
     -webkit-font-smoothing: antialiased;

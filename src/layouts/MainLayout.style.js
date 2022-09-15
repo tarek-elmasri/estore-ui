@@ -49,11 +49,11 @@ export const SideBarWrapper = styles.aside`
 
 export const PageContent = styles.section`
   .page-wrapper{
-    padding: 0 1rem;
+    padding: 1rem 1rem;
     background-color: ${globalStyles.theme.colors.page_bg_color};
     
     @media (min-width: ${globalStyles.screens.md}){
-      padding: 0 2rem;
+      padding: 1rem 2rem;
     };
   };
   
