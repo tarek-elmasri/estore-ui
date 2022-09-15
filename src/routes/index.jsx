@@ -3,18 +3,18 @@ import { useRoutes, Navigate } from "react-router-dom";
 import Loading from "../components/Loading";
 import AuthLayout from "../layouts/AuthLayout";
 import MainLayout from "../layouts/MainLayout";
-import { UnauthenticatedRoute } from "./AuthRoutes";
+import { UnauthenticatedRoute, AuthenticatedRoute } from "./AuthRoutes";
 const HomeComponent = lazy(() => import("../application/Home"));
 const LoginComponent = lazy(() => import("../application/Login"));
 
 const createAuthenticatedRoute = (Component, required_authorization = null) => (
-  // <AuthenticatedRoute authorization={required_authorization}>
-  <Suspense fallback={null}>
-    <MainLayout>
-      <Component />
-    </MainLayout>
-  </Suspense>
-  // </AuthenticatedRoute>
+  <AuthenticatedRoute authorization={required_authorization}>
+    <Suspense fallback={null}>
+      <MainLayout>
+        <Component />
+      </MainLayout>
+    </Suspense>
+  </AuthenticatedRoute>
 );
 
 const createCredentialsRoute = (Component) => (

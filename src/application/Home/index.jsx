@@ -1,25 +1,35 @@
 import React from "react";
 import useUserProfile from "../../api/services/useUserProfile";
-import { useQueryClient } from "react-query";
+import Loading from "../../components/Loading";
+import { Wrapper, Top, DataBlock } from "./style";
+import useStaffActions from "../../api/services/useStaffActions";
 
 const Home = () => {
-  const client = useQueryClient();
-  const { user, isLoading, context } = useUserProfile();
+  const { isLoading: userIsLoading } = useUserProfile();
+  const { staffActions, isLoading: staffActionIsLoading } = useStaffActions();
 
-  if (isLoading) return "Loading ...";
+  if (userIsLoading) return <Loading enabled text={`جار تحميل ملفك الشخصي`} />;
+
+  if (staffActionIsLoading)
+    return <Loading enabled text={`جاري تحميل البيانات`} />;
+
   return (
-    <div>
-      <h1>{user ? user.first_name : "no user"}</h1>
-      <h1>test</h1>
-      <button onClick={() => client.resetQueries(["users"])}>reload!</button>
-      <h1 style={{ fontSize: "3rem" }}>اختبار الخط</h1>
-      <h1 style={{ fontWeight: "normal", fontSize: "3rem" }}>اختبار الخط</h1>
-      <h1 style={{ fontWeight: "bold", fontSize: "3rem" }}>اختبار الخط</h1>
-      <h1 style={{ fontWeight: "400", fontSize: "3rem" }}>اختبار الخط</h1>
+    <Wrapper>
+      {/* header last Events // other side filter options */}
+      <Top>
+        <div className="header">
+          <i className="ti ti-components"></i>
+          <h1>اخر الأحداث</h1>
+        </div>
+        <div className="filter-btn">
+          <i className="ti ti-filter"></i>
+          <span>تصفية</span>
+        </div>
+      </Top>
 
-      <p>p</p>
-      <small>small</small>
-    </div>
+      {/* list blocks of events as links if user is authorized */}
+      <DataBlock></DataBlock>
+    </Wrapper>
   );
 };
 

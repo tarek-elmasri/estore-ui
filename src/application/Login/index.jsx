@@ -70,14 +70,7 @@ const Login = () => {
             </div>
 
             <div>
-              <Link
-                to="/auth"
-                style={{
-                  color: "black",
-                  textDecoration: "underline",
-                  fontWeight: "bold",
-                }}
-              >
+              <Link to="/auth" className="forget-password-link">
                 <small>نسيت كلمة المرور</small>
               </Link>
             </div>

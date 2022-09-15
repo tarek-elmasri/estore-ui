@@ -61,9 +61,10 @@ export const InfoBlock = styles.div`
     margin-top: 1rem;
     &:last-of-type{
       text-align: end;
-      opacity: 0.7;
-      small:hover{
+      .forget-password-link{
         color: blue;
+        font-weight: bold;
+        text-decoration: underline;
       };
     };
   };
