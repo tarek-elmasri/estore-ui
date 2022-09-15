@@ -80,13 +80,21 @@ export const SubmitSection = styles.div`
     background-color: var(--deep-blue);
     color: var(--offwhite);
 
-    &:hover{
+    
+    &:disabled{
+      background-color: gray;      
+    };
+    
+    &:hover:enabled{
       background-color: var(--light-blue);
       color: white;
       cursor: pointer;
-
+  
     };
 
+    &:focus{
+      outline: var(--light-blue) solid 2px;
+    };
     span{
       margin: auto;
     };

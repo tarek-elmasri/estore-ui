@@ -1,7 +1,6 @@
 import React from "react";
 import useUserProfile from "../../api/services/useUserProfile";
 import { useQueryClient } from "react-query";
-import Navbar from "../../components/Navbar";
 
 const Home = () => {
   const client = useQueryClient();

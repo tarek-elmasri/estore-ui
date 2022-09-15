@@ -1,10 +1,11 @@
 import { Suspense, lazy } from "react";
 import { useRoutes, Navigate } from "react-router-dom";
-import Login from "../application/Login";
+import Loading from "../components/Loading";
+import AuthLayout from "../layouts/AuthLayout";
 import MainLayout from "../layouts/MainLayout";
-import AuthenticatedRoute from "./AuthenticatedRoute";
-
+import { UnauthenticatedRoute } from "./AuthRoutes";
 const HomeComponent = lazy(() => import("../application/Home"));
+const LoginComponent = lazy(() => import("../application/Login"));
 
 const createAuthenticatedRoute = (Component, required_authorization = null) => (
   // <AuthenticatedRoute authorization={required_authorization}>
@@ -14,6 +15,16 @@ const createAuthenticatedRoute = (Component, required_authorization = null) => (
     </MainLayout>
   </Suspense>
   // </AuthenticatedRoute>
+);
+
+const createCredentialsRoute = (Component) => (
+  <Suspense fallback={<Loading enabled={true} />}>
+    <UnauthenticatedRoute>
+      <AuthLayout>
+        <Component />
+      </AuthLayout>
+    </UnauthenticatedRoute>
+  </Suspense>
 );
 
 const Router = () => {
@@ -32,9 +43,9 @@ const Router = () => {
           element: createAuthenticatedRoute(HomeComponent),
         },
         {
-          path: "/auth",
+          path: "/login",
           exact: true,
-          element: <Login />,
+          element: createCredentialsRoute(LoginComponent),
         },
       ],
     },

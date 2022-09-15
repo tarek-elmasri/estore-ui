@@ -45,7 +45,7 @@ const AuthLayout = ({ children }) => {
     <Wrapper>
       <div className="component-container">{children}</div>
       <div className="image">
-        <img src={bg} />
+        <img src={bg} alt="login" />
       </div>
     </Wrapper>
   );
