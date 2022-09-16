@@ -1,13 +1,13 @@
-import React from "react";
 import { NavLink } from "react-router-dom";
 import { Container, StoreLogo, Top } from "./style";
+import PropTypes from "prop-types";
 
-const Sidebar = () => {
+const Sidebar = ({ isFloating }) => {
   const navTabClass = ({ isActive }) =>
     `nav-tab ${isActive && "nav-tab-active"}`;
 
   return (
-    <Container>
+    <Container overFlow={isFloating}>
       <Top>
         <img
           src="https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=500"
@@ -52,6 +52,14 @@ const Sidebar = () => {
       </NavLink>
     </Container>
   );
+};
+
+Sidebar.propTypes = {
+  isFloating: PropTypes.bool,
+};
+
+Sidebar.defaultProps = {
+  isFloating: false,
 };
 
 export default Sidebar;

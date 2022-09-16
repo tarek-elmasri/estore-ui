@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import globalStyles from "./assets/global-styles";
 export const GlobalStyle = createGlobalStyle`
 
 	html, body, div, span, applet, object, iframe,
@@ -66,4 +67,45 @@ export const GlobalStyle = createGlobalStyle`
 	a{
 		text-decoration: none;
 		color: #fff;
-	}`;
+	}
+	
+	/* global variables */
+	:root{
+		--text-sm: 16px; 
+		--text-lg: 24px;
+		--text-xs: 14px;
+		--text-md: 20px;
+
+		--offwhite: ${globalStyles.theme.colors.offwhite};
+		--deep-blue: ${globalStyles.theme.colors.bg_color};
+		--light-blue: ${globalStyles.theme.colors.light_bg_color};
+		--app-bg: ${globalStyles.theme.colors.page_bg_color};
+
+		--screen-sm: ${globalStyles.screens.sm};
+		--screen-md: ${globalStyles.screens.md};
+		--screen-lg: ${globalStyles.screens.lg}
+	};
+
+
+	/* set elements basic styles */
+	
+  h1{
+    font-weight: bold;
+    font-size: var(--text-lg);
+  };
+
+  strong{
+    font-weight: bold;
+  };
+
+  small{
+    font-size: var(--text-xs)
+  };
+
+  span{
+    font-size: var(--text-sm)
+  };
+
+	
+	
+	`;

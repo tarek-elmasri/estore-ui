@@ -1,17 +1,18 @@
-import styles from 'styled-components'
+import styles, { css } from 'styled-components'
 import globalStyles from '../../assets/global-styles'
 
 export const Container = styles.div`
-color: ${globalStyles.theme.colors.offwhite};
+color: var(--offwhite);
 padding-top: 1rem;
 height: 100%;
 width: 100%;
-overflow: auto;
+overflow: ${({ overFlow }) => overFlow ? css`auto` : css`hidden`};
 z-index: 999;
 
 .nav-tab{
   padding: .5rem 1rem;;
   display: flex;
+  align-items: center;
   font-size: 1rem;
   
   span{
@@ -21,32 +22,31 @@ z-index: 999;
 };
 
 .nav-tab:hover, .nav-tab-active{
-  background-color: ${globalStyles.theme.colors.light_bg_color};
+  background-color: var(--light-blue);
   color: white;
 };
 
-@media (min-width: ${globalStyles.screens.md}){
-  overflow: hidden;
-};
 `
 
 export const Top = styles.div`
+
   display: none;
   margin-bottom: 1rem;
   
+  height: 2.5rem;
+  width: 100%;
+  border-bottom: var(--light-blue) solid 1px;
+
+  img{
+    display: block;
+    width: 2rem;
+    margin: auto;
+  };
+
   @media (min-width: ${globalStyles.screens.md}){
     display: block;
-    height: 2.5rem;
-    width: 100%;
-    border-bottom: ${globalStyles.theme.colors.light_bg_color} solid 1px;
-
-    img{
-      display: block;
-      width: 2rem;
-      margin: auto;
-    };
-    
   };
+    
 `
 
 export const StoreLogo = styles.div`
@@ -67,18 +67,20 @@ export const StoreLogo = styles.div`
   };
 
   .share-btn{
+    span,i{
+      font-size: 0.75rem;
+    };
     margin-top: .25rem;
     padding: 1px .5rem;
     width: 6rem;
-    border: ${globalStyles.theme.colors.light_bg_color} solid 2px;
+    border: var(--light-blue) solid 2px;
     border-radius: 20px;
-    font-size: 0.75rem;
     display: flex;
     align-items: center;
     justify-content:space-between;
 
     &:hover{
-      background-color: ${globalStyles.theme.colors.light_bg_color}
+      background-color: var(--light-blue);
     };
   };
 
