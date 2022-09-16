@@ -5,16 +5,11 @@ import { Wrapper, Top, DataBlock } from "./style";
 import useStaffActions from "../../api/services/useStaffActions";
 
 const Home = () => {
-  const { isLoading: userIsLoading } = useUserProfile();
   const { staffActions, isLoading: staffActionIsLoading } = useStaffActions();
-
-  if (userIsLoading) return <Loading enabled text={`جار تحميل ملفك الشخصي`} />;
-
-  if (staffActionIsLoading)
-    return <Loading enabled text={`جاري تحميل البيانات`} />;
 
   return (
     <Wrapper>
+      <Loading enabled={staffActionIsLoading} text="جاري تحميل البيانات" />
       {/* header last Events // other side filter options */}
       <Top>
         <div className="header">
@@ -28,7 +23,12 @@ const Home = () => {
       </Top>
 
       {/* list blocks of events as links if user is authorized */}
-      <DataBlock></DataBlock>
+      <DataBlock>
+        {staffActions &&
+          staffActions.map((staffAction) => (
+            <div key={staffAction.id}>{JSON.stringify(staffAction)}</div>
+          ))}
+      </DataBlock>
     </Wrapper>
   );
 };

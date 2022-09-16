@@ -10,7 +10,7 @@ export const AuthenticatedRoute = (props) => {
   const { authorization: required_authorization } = props;
   const location = useLocation().pathname.substring(1);
 
-  if (isLoading) return <Loading enabled />;
+  if (isLoading) return <Loading enabled text="تحميل ملفك الشخصي" />;
 
   if (!user)
     return (

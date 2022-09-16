@@ -8,17 +8,17 @@ const HomeComponent = lazy(() => import("../application/Home"));
 const LoginComponent = lazy(() => import("../application/Login"));
 
 const createAuthenticatedRoute = (Component, required_authorization = null) => (
-  <AuthenticatedRoute authorization={required_authorization}>
-    <Suspense fallback={null}>
+  <Suspense fallback={<Loading enabled />}>
+    <AuthenticatedRoute authorization={required_authorization}>
       <MainLayout>
         <Component />
       </MainLayout>
-    </Suspense>
-  </AuthenticatedRoute>
+    </AuthenticatedRoute>
+  </Suspense>
 );
 
 const createCredentialsRoute = (Component) => (
-  <Suspense fallback={<Loading enabled={true} />}>
+  <Suspense fallback={<Loading enabled />}>
     <UnauthenticatedRoute>
       <AuthLayout>
         <Component />
