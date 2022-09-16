@@ -1,5 +1,4 @@
 import React from "react";
-import useUserProfile from "../../api/services/useUserProfile";
 import Loading from "../../components/Loading";
 import { Wrapper, Top, DataBlock } from "./style";
 import useStaffActions from "../../api/services/useStaffActions";

@@ -5,9 +5,13 @@ import bg from "../assets/auth-bg.jpg";
 
 const Wrapper = styles.div`
   display: flex;
+  grid-template-columns: 1fr 1fr;
   height: 100%;
   width: 100%;
-
+  max-height: 100vh;
+  max-width: 100%;
+  overflow: auto;
+  
   .component-container{
     padding: 1rem;
     width: 100%;
@@ -22,20 +26,18 @@ const Wrapper = styles.div`
   };
 
   @media (min-width: ${globalStyles.screens.md}){
+    display: grid;
     .component-container{
-      width: 50%;
+      width: 100%;
       height: 100%;
-      flex: none;
     };
 
     .image{
-      width: 50%;
-      flex: none;
-      display: block;
+      display:flex;
+      height: 100vh;
       img{
         width: 100%;
-        height: 100%;
-      };
+      };  
     };
   };
 `;

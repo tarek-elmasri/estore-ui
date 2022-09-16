@@ -6,19 +6,22 @@ const TransparentScreen = styles.div`
   background-color: black;
   top: 0;
   right: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   opacity: 0.8;
-`;
+  z-index: 1000;
+  `;
 
 const Progress = styles.div`
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translateY(-50%);
-  color: white;
-  span{font-size: 24px;};
-`;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    color: white;
+    z-index: 1001;
+  `;
 
 const loading = keyframes`
   0% {
@@ -77,11 +80,12 @@ const Loading = ({ text, enabled }) => {
     <>
       {enabled && (
         <>
-          <TransparentScreen />
-          <Progress>
-            <ComitSpin color="white" size={40} duration={1.7} />
-            <span>{text || "الرجاء الانتظار"}</span>
-          </Progress>
+          <TransparentScreen>
+            <Progress>
+              <ComitSpin color="white" size={40} duration={1.7} />
+              <span>{text || "الرجاء الانتظار"}</span>
+            </Progress>
+          </TransparentScreen>
         </>
       )}
     </>
