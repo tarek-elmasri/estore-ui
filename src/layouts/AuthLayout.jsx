@@ -5,51 +5,46 @@ import bg from "../assets/auth-bg.jpg";
 
 const Wrapper = styles.div`
   display: flex;
-  grid-template-columns: 1fr 1fr;
-  height: 100%;
+  min-height: 100%;
   width: 100%;
-  overflow: auto;
-  
+
   .component-container{
+    display: flex;
     padding: 1rem;
     width: 100%;
-    height: 100%;
-    display: flex;
+    min-height: 100%;
     align-items: center;
     justify-content: center;
+    background-image: url(${bg});
+    background-size: cover;
+    backgroud-repeat: repeat;
   };
 
   .image{
     display: none;
   };
 
-  @media (min-width: ${globalStyles.screens.md}){
-    display: grid;
+  @media (min-width: ${globalStyles.screens.lg}){
     .component-container{
-      padding: 0;
-      width: 100%;
-      height: 100%;
+      width: 50%;
+      background-image: unset;
     };
-
+  
     .image{
-      display: inline-grid;
-      height: 100%;
-      width: 100%;
-      img{
-        width: 100%;
-        height: 100vh;
-      }
+      display: block;
+      width: 50%;
+      background-image: url(${bg});
+      background-size: cover;
+      backgroud-repeat: repeat;
     };
   };
-`;
+  `;
 
 const AuthLayout = ({ children }) => {
   return (
     <Wrapper>
       <div className="component-container">{children}</div>
-      <div className="image">
-        <img src={bg} alt="login" />
-      </div>
+      <div className="image">{/* <img src={bg} alt="login" /> */}</div>
     </Wrapper>
   );
 };
