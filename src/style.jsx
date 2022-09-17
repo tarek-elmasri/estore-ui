@@ -80,7 +80,8 @@ export const GlobalStyle = createGlobalStyle`
 		--deep-blue: ${globalStyles.theme.colors.bg_color};
 		--light-blue: ${globalStyles.theme.colors.light_bg_color};
 		--app-bg: ${globalStyles.theme.colors.page_bg_color};
-
+		--orange: ${globalStyles.theme.colors.orange};
+		
 		--screen-sm: ${globalStyles.screens.sm};
 		--screen-md: ${globalStyles.screens.md};
 		--screen-lg: ${globalStyles.screens.lg}

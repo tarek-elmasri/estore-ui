@@ -29,7 +29,7 @@ const SearchBar = () => {
           className="combo"
           onClick={() => setShowComboList((prev) => !prev)}
         >
-          <h1>{searchContent.searchOption.caption}</h1>
+          <span>{searchContent.searchOption.caption}</span>
           <i className="ti ti-chevron-down"></i>
 
           <CSSTransition

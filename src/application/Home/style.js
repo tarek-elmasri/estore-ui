@@ -54,6 +54,15 @@ export const Top = styles.div`
 `
 
 export const DataBlock = styles.div`
+  border var(--offwhite) solid 1px;
+  padding: 1rem;
+  margin-top: 1rem;
 
+  ul{
+    padding-right: 2rem;
+  };
 
+  li{
+    list-style-type: circle;
+  };
 `

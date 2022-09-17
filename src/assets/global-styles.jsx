@@ -5,6 +5,7 @@ export default {
       bg_color: "#0a1433",
       light_bg_color: "#39435e",
       offwhite: "#dedce6",
+      orange: "#9c8852",
     },
   },
   screens: {

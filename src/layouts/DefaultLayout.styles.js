@@ -2,7 +2,6 @@ import styles, { css } from 'styled-components'
 import globalStyles from '../assets/global-styles'
 
 export const LayoutWrapper = styles.div`
-  background-color: yellow;
   min-height: 100%;
   display: grid;
   grid-template-areas: 
