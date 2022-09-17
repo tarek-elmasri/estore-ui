@@ -27,6 +27,7 @@ export const Wrapper = styles.div`
     font-size: var(--text-sm)
   };
 
+
   @media (min-width: ${globalStyles.screens.md}){
     max-width: 27rem;
   };

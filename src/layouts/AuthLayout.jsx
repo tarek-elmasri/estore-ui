@@ -8,8 +8,6 @@ const Wrapper = styles.div`
   grid-template-columns: 1fr 1fr;
   height: 100%;
   width: 100%;
-  max-height: 100vh;
-  max-width: 100%;
   overflow: auto;
   
   .component-container{
@@ -28,16 +26,19 @@ const Wrapper = styles.div`
   @media (min-width: ${globalStyles.screens.md}){
     display: grid;
     .component-container{
+      padding: 0;
       width: 100%;
       height: 100%;
     };
 
     .image{
-      display:flex;
-      height: 100vh;
+      display: inline-grid;
+      height: 100%;
+      width: 100%;
       img{
         width: 100%;
-      };  
+        height: 100vh;
+      }
     };
   };
 `;
