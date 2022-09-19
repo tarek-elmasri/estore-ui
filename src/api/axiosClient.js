@@ -39,7 +39,7 @@ axiosInstance.interceptors.response.use(
 
       try {
         const { data } = await updateSession();
-        ls.set("tokens", data.tokens);
+        ls.set("tokens", data);
         return axiosInstance.request(error.config);
       } catch (err) {
         ls.remove("tokens");
