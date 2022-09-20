@@ -1,11 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React from "react";
+import ReactDOM from "react-dom/client";
 // import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import ls from 'local-storage'
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
 // ls.set('tokens', {
 //   access_token: 'eyJpc3MiOiJlY29tZXJjZSBzdG9yZSIsInZlcnNpb24iOiIxLjAuMCIsImFsZyI6IkhTMjU2In0.eyJpZCI6IjA2NmM5ZmVmLTFiNGItNDQxNC04NTM0LTU4ZjMwNTkyMzE3ZiIsInJ1bGUiOiJhZG1pbiIsImV4cCI6MTY2MjYzNzkwOX0.IX82DMGv_X2BVIZFiHKpAx2XdFwyHYMrcOV3b4i-VtE'

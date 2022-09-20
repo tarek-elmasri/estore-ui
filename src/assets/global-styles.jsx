@@ -1,4 +1,4 @@
-export default {
+const globalStyle = {
   theme: {
     colors: {
       page_bg_color: "#f2f3f4",
@@ -16,3 +16,4 @@ export default {
     xxl: "1536px",
   },
 };
+export default globalStyle;

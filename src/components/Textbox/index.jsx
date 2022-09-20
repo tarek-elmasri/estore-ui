@@ -1,5 +1,4 @@
 import React from "react";
-import { useRef } from "react";
 import styles from "styled-components";
 import globalStyles from "../../assets/global-styles";
 
