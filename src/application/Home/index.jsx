@@ -5,9 +5,13 @@ import useStaffActions from "../../api/services/useStaffActions";
 import Avatar from "../../components/Avatar";
 import formatStaffAction from "../../utils/formatStaffAction";
 import formatTimeToNow from "../../utils/distanceDate";
+import OptionsBar from "../../components/OptionsBar";
+import { useRef } from "react";
 
 const Home = () => {
   const { staffActions, isLoading: staffActionIsLoading } = useStaffActions();
+
+  const optionsBarRef = useRef();
 
   return (
     <Wrapper>
@@ -20,7 +24,10 @@ const Home = () => {
             <i className="ti ti-components"></i>
             <h1>اخر الأحداث</h1>
           </div>
-          <div className="header-filter-btn">
+          <div
+            className="header-filter-btn"
+            onClick={() => optionsBarRef.current.toggle()}
+          >
             <i className="ti ti-filter"></i>
             <span>تصفية</span>
           </div>
@@ -43,6 +50,17 @@ const Home = () => {
 
       {/* authorizations block */}
       <AuthorizationsBlock></AuthorizationsBlock>
+      <OptionsBar ref={optionsBarRef}>
+        <div
+          style={{
+            width: "14rem",
+            height: "14rem",
+            backgroundColor: "steelblue",
+          }}
+        >
+          test
+        </div>
+      </OptionsBar>
     </Wrapper>
   );
 };
