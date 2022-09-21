@@ -10,11 +10,14 @@ const Wrapper = styles.div`
     css`
       width: ${props.width};
     `}
-
+  
+  background-color: white;
+  color: black;
   height: 2.5rem;
   min-width: 10rem;
   position: relative;
   .display{
+    background-color: inherit;
     height: 100%;
     display: flex;
     align-items: center;
@@ -28,6 +31,8 @@ const Wrapper = styles.div`
   };
 
   .options{
+    background-color: inherit;
+    z-index: 100;
     position: absolute;
     top: 2.5rem;
     display: flex;
@@ -62,7 +67,13 @@ const Wrapper = styles.div`
   };
 `;
 
-const Combo = ({ options, defaultOption, onChange, ...others }) => {
+const Combo = ({
+  name,
+  options,
+  defaultOption,
+  onChange: onOptionChange,
+  ...others
+}) => {
   const [choice, setChoice] = useState(defaultOption);
   const [toggle, setToggle] = useState(false);
 
@@ -76,15 +87,15 @@ const Combo = ({ options, defaultOption, onChange, ...others }) => {
   }, [outsideClick]);
 
   useEffect(() => {
-    if (onChange) onChange(choice);
+    if (onOptionChange) onOptionChange(name, choice);
 
     // eslint-disable-next-line
-  }, [choice]);
+  }, [choice.key]);
 
   return (
     <Wrapper ref={comboRef} {...others}>
       <div className="display" onClick={() => setToggle((prev) => !prev)}>
-        <span>{choice}</span>
+        <span>{choice.value}</span>
         {toggle ? (
           <i className="ti ti-chevron-up"></i>
         ) : (
@@ -94,16 +105,17 @@ const Combo = ({ options, defaultOption, onChange, ...others }) => {
 
       {toggle && (
         <div className="options">
-          {options.map((option, i) => (
+          {options.map((option) => (
             <div
-              key={`option-${i}`}
-              className={`option ${choice === option && "selected"}`}
+              key={option.key}
+              className={`option ${choice.key === option.key && "selected"}`}
               onClick={() => {
-                setChoice(option);
+                setChoice((prev) => ({ ...prev, ...option }));
+                onOptionChange(name, option);
                 setToggle(false);
               }}
             >
-              <span>{option}</span>
+              <span>{option.value}</span>
             </div>
           ))}
         </div>
@@ -113,14 +125,16 @@ const Combo = ({ options, defaultOption, onChange, ...others }) => {
 };
 
 Combo.propTypes = {
+  name: PropTypes.string,
   options: PropTypes.array,
   defaultOption: PropTypes.any,
   onChange: PropTypes.func,
 };
 
 Combo.defaultProps = {
+  name: null,
   options: [],
-  defaultOption: null,
+  defaultOption: {},
   onChange: () => null,
 };
 

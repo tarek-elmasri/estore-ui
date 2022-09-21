@@ -1,4 +1,4 @@
-import { forwardRef, useState } from "react";
+import { forwardRef, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import styles, { css } from "styled-components";
 import { CSSTransition } from "react-transition-group";
@@ -85,7 +85,7 @@ const BarSection = styles.div`
 const Drawer = forwardRef(
   ({ component, height, width, side, backgroundColor, top }, ref) => {
     const [open, setOpen] = useState(false);
-
+    const barSectionRef = useRef();
     useImperativeHandle(ref, () => ({
       toggle: () => setOpen((prev) => !prev),
     }));
@@ -99,9 +99,11 @@ const Drawer = forwardRef(
           in={open}
           timeout={400}
           classNames="active"
+          nodeRef={barSectionRef}
           unmountOnExit
         >
           <BarSection
+            ref={barSectionRef}
             height={height}
             width={width}
             side={side}
