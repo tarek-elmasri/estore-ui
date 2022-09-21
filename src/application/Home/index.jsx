@@ -5,13 +5,22 @@ import useStaffActions from "../../api/services/useStaffActions";
 import Avatar from "../../components/Avatar";
 import formatStaffAction from "../../utils/formatStaffAction";
 import formatTimeToNow from "../../utils/distanceDate";
-import OptionsBar from "../../components/OptionsBar";
 import { useRef } from "react";
+import Drawer from "../../components/Drawer";
+import Combo from "../../components/Combo";
 
 const Home = () => {
   const { staffActions, isLoading: staffActionIsLoading } = useStaffActions();
 
   const optionsBarRef = useRef();
+
+  const FilterComponent = () => {
+    return (
+      <div>
+        <Combo options={["item", "item2"]} />
+      </div>
+    );
+  };
 
   return (
     <Wrapper>
@@ -50,17 +59,11 @@ const Home = () => {
 
       {/* authorizations block */}
       <AuthorizationsBlock></AuthorizationsBlock>
-      <OptionsBar ref={optionsBarRef}>
-        <div
-          style={{
-            width: "14rem",
-            height: "14rem",
-            backgroundColor: "steelblue",
-          }}
-        >
-          test
-        </div>
-      </OptionsBar>
+      <Drawer
+        width="36rem"
+        ref={optionsBarRef}
+        component={<FilterComponent />}
+      />
     </Wrapper>
   );
 };
