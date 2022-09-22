@@ -29,7 +29,7 @@ const Wrapper = styles.div`
     outline: none;
     appearance: none;
     border: none;
-    font-size: 17px;
+    font-size: 14px;
   };
   
 
@@ -45,11 +45,11 @@ const Wrapper = styles.div`
 
 `;
 
-const TextBox = ({ icon, ...other }) => {
+const TextBox = ({ className, icon, ...other }) => {
   const [focused, setFocused] = useState(false);
 
   return (
-    <Wrapper focus={focused}>
+    <Wrapper className={className} focus={focused}>
       <div>{icon && icon}</div>
 
       <input

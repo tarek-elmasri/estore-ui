@@ -18,16 +18,33 @@ const Items = () => {
       </div>
       <div className="items__body">
         <ItemCard>
-          {/* <img /> */}
-          <div className="flex">
+          <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" />
+          <div className="item-card__body">
             <Textbox
               className="textbox"
-              icon={<i className="ti ti-filter" />}
+              placeholder="أدخل اسم المنتج"
+              icon={<i className="ti ti-writing" />}
             />
-            <div className="dollar">$</div>
-          </div>
-          <div className="flex">
-            <Textbox icon={<i className="ti ti-user" />} />
+            <div className="flex">
+              <Textbox
+                className="textbox"
+                placeholder="السعر"
+                icon={<i className="ti ti-businessplan" />}
+              />
+              <div className="btn">
+                <i className="ti ti-currency-dollar"></i>
+              </div>
+            </div>
+            <div className="flex">
+              <Textbox
+                className="textbox"
+                placeholder="الكمية"
+                icon={<i className="ti ti-calculator" />}
+              />
+              <div className="btn">
+                <i className="ti ti-infinity"></i>
+              </div>
+            </div>
           </div>
         </ItemCard>
         <ItemCard>item2</ItemCard>

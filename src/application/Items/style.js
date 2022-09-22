@@ -1,8 +1,5 @@
-import styles from 'styled-components'
-import globalStyle from '../../assets/global-styles'
-
-
-
+import styles from "styled-components";
+import globalStyle from "../../assets/global-styles";
 
 export const Wrapper = styles.div`
 
@@ -37,6 +34,7 @@ export const Wrapper = styles.div`
     grid-template-columns: auto;
 
 
+  
     @media (min-width: ${globalStyle.screens.lg}){
       grid-template-columns: auto auto;
     };
@@ -46,24 +44,35 @@ export const Wrapper = styles.div`
     };
   };
 
-`
+`;
 
 export const ItemCard = styles.div`
-  background-color: yellow;
   margin: .5rem; //to be deleted
-  padding: .5rem;
   border: var(--offwhite) solid 1px;
 
-  .flex{
-    background-color: blue;
+  .item-card__body{
+    padding: 1.5rem;
+  };
+  img{
     display: flex;
-    justify-content: space-between;
+    max-height: 150px;
+    margin: auto;
+  };
+  .flex{
+    display: flex;
     align-items: center;
-    width: 100%;
-    
+    margin-top: .5rem;
   };
   .textbox{
     flex-grow: 1;
   };
-
-`
+  
+  .btn{
+    background-color: var(--offwhite);
+    text-align: center;
+    padding: 0 0.5rem;
+    margin-right: .25rem;
+    cursor: pointer;
+    border: var(--light-blue) solid 1px;
+  };
+`;
