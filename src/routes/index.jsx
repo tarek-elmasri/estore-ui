@@ -7,6 +7,7 @@ import DefaultLayout from "../layouts/DefaultLayout";
 import { UnauthenticatedRoute, AuthenticatedRoute } from "./AuthRoutes";
 const HomeComponent = lazy(() => import("../application/Home"));
 const LoginComponent = lazy(() => import("../application/Login"));
+const ItemsComponent = lazy(() => import("../application/Items"));
 
 const createAuthenticatedRoute = (Component, required_authorization = null) => (
   <Suspense fallback={<Loading enabled />}>
@@ -47,6 +48,11 @@ const Router = () => {
           path: "/login",
           exact: true,
           element: createCredentialsRoute(LoginComponent),
+        },
+        {
+          path: "/items",
+          exact: true,
+          element: createAuthenticatedRoute(ItemsComponent, "show_items"),
         },
       ],
     },

@@ -37,6 +37,7 @@ export const StaffActionsBlock = styles.div`
   flex-grow: 1;
   
   .staff-actions__header{
+    background-color: white;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -60,6 +61,8 @@ export const StaffActionsBlock = styles.div`
   };
 
   .staff-actions__body{
+    background-color: white;
+
     border var(--offwhite) solid 1px;
     padding: 1rem;
     margin-top: 1rem;

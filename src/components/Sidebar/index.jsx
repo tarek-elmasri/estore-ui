@@ -34,7 +34,7 @@ const Sidebar = ({ isFloating }) => {
         <i className="ti ti-home"></i>
         <span>الرئيسية</span>
       </NavLink>
-      <NavLink className={navTabClass} to="/ss">
+      <NavLink className={navTabClass} to="/items">
         <i className="ti ti-apps"></i>
         <span>المنتجات</span>
       </NavLink>

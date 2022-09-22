@@ -1,23 +1,35 @@
 import React from "react";
-import styles from "styled-components";
+import { useState } from "react";
+import styles, { css } from "styled-components";
 import globalStyles from "../../assets/global-styles";
 
 const Wrapper = styles.div`
   position: relative;
-  width: 100%;
+  //width: 100%
+  display: flex;
+  background-color: white;
+  align-items: center;
+  border: none;
+  ${(props) =>
+    props.focus
+      ? css`
+          border-bottom: var(--deep-blue) solid 1px;
+        `
+      : css`
+          border-bottom: var(--offwhite) solid 1px;
+        `}
+
   
+  div{
+    margin-left: 0.25rem;
+    opacity: .5;
+  };
   input{
-    padding-top: 10px 20px;
     width: 100%;
     outline: none;
     appearance: none;
     border: none;
-    border-bottom: gray solid 2px;
     font-size: 17px;
-
-    &:focus{
-      border-color: ${globalStyles.theme.colors.bg_color};
-    };
   };
   
 
@@ -33,10 +45,18 @@ const Wrapper = styles.div`
 
 `;
 
-const TextBox = (props) => {
+const TextBox = ({ icon, ...other }) => {
+  const [focused, setFocused] = useState(false);
+
   return (
-    <Wrapper>
-      <input {...props} />
+    <Wrapper focus={focused}>
+      <div>{icon && icon}</div>
+
+      <input
+        onFocus={() => setFocused(true)}
+        onBlur={() => setFocused(false)}
+        {...other}
+      />
     </Wrapper>
   );
 };
