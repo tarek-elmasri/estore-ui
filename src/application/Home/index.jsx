@@ -1,23 +1,31 @@
 import React, { useState } from "react";
 import Loading from "../../components/Loading";
-import { Wrapper, StaffActionsBlock, AuthorizationsBlock } from "./style";
+import {
+  Wrapper,
+  StaffActionsBlock,
+  AuthorizationsBlock,
+  FilterContainer,
+} from "./style";
 import useStaffActions from "../../api/services/useStaffActions";
 import Avatar from "../../components/Avatar";
 import {
   formatActionToString,
   modelNames,
   actionNames,
+  getActionNameValue,
+  getModelNameValue,
 } from "../../utils/formatStaffAction";
-
 import formatTimeToNow from "../../utils/distanceDate";
 import { useRef } from "react";
 import Drawer from "../../components/Drawer";
 import Combo from "../../components/Combo";
+
 const Home = () => {
   const [filterParams, setFilterParams] = useState({});
   const { staffActions, isLoading: staffActionIsLoading } =
     useStaffActions(filterParams);
-  const optionsBarRef = useRef();
+
+  const drawerRef = useRef();
 
   const FilterComponent = () => {
     const comboHandleChange = (name, { key, _ }) => {
@@ -28,31 +36,34 @@ const Home = () => {
       }
     };
     return (
-      <div style={{ padding: "1rem", color: "white" }}>
+      <FilterContainer>
         <div>
           <span>نوع الحدث</span>
           <Combo
+            className="combo"
             name="action_type"
             options={actionNames}
             defaultOption={{
               key: filterParams.action_type || "all",
-              value:
-                actionNames.find((o) => o.key === filterParams.action_type)
-                  ?.value || "الكل",
+              value: getActionNameValue(filterParams.action_type || "all"),
             }}
             onChange={comboHandleChange}
           />
         </div>
         <div>
-          {/* <span>نوع السجل</span>
+          <span>نوع السجل</span>
           <Combo
+            className="combo"
             name="model_name"
-            options={modelOptions}
-            defaultOption={{ key: "all", value: "الكل" }}
+            options={modelNames}
+            defaultOption={{
+              key: filterParams.model_name || "all",
+              value: getModelNameValue(filterParams.model_name || "all"),
+            }}
             onChange={comboHandleChange}
-          /> */}
+          />
         </div>
-      </div>
+      </FilterContainer>
     );
   };
 
@@ -69,7 +80,7 @@ const Home = () => {
           </div>
           <div
             className="header-filter-btn"
-            onClick={() => optionsBarRef.current.toggle()}
+            onClick={() => drawerRef.current.toggle()}
           >
             <i className="ti ti-filter"></i>
             <span>تصفية</span>
@@ -94,8 +105,8 @@ const Home = () => {
       {/* authorizations block */}
       <AuthorizationsBlock></AuthorizationsBlock>
       <Drawer
-        width="36rem"
-        ref={optionsBarRef}
+        width="16rem"
+        ref={drawerRef}
         component={<FilterComponent />}
         backgroundColor="var(--deep-blue)"
       />

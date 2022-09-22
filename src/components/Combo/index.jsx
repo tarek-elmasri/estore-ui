@@ -86,11 +86,11 @@ const Combo = ({
     // eslint-disable-next-line
   }, [outsideClick]);
 
-  useEffect(() => {
-    if (onOptionChange) onOptionChange(name, choice);
+  // useEffect(() => {
+  //   if (onOptionChange) onOptionChange(name, choice);
 
-    // eslint-disable-next-line
-  }, [choice.key]);
+  //   // eslint-disable-next-line
+  // }, [choice.key]);
 
   return (
     <Wrapper ref={comboRef} {...others}>

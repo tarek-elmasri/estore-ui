@@ -28,14 +28,14 @@ export const modelNames = [
   { key: "all", value: "الكل" },
 ];
 
-export const formatActionToString = (staffAction) => {
-  let action =
-    actionNames.find((o) => o.key === staffAction.action)?.value ||
-    "حدث غير معرف";
+export const getActionNameValue = (action) => actionNames.find((o) => o.key === action)?.value
 
-  let model =
-    modelNames.find((o) => o.key === staffAction.model)?.value ||
-    "سجل غير معرف";
+
+export const getModelNameValue = (model) => modelNames.find(o => o.key == model)?.value
+
+export const formatActionToString = (staffAction) => {
+  let action = getActionNameValue(staffAction.action) || "حدث غير معرف";
+  let model = getModelNameValue(staffAction.model) || "سجل غير معرف";
 
   return `${action} ${model}`;
 };

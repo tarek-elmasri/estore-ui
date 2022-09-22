@@ -106,3 +106,17 @@ export const AuthorizationsBlock = styles.div`
   
   
   `;
+
+export const FilterContainer = styles.div`
+  padding: 1rem;
+  color: var(--offwhite);
+
+  div{
+    margin-bottom: 1rem;
+  };
+
+  .combo{
+    margin-top: .5rem;
+  };
+
+`
