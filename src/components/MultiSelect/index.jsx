@@ -2,27 +2,27 @@ import { nominalTypeHack } from "prop-types";
 import React from "react";
 import Select from "react-select";
 
-const MultiSelect = () => {
-  const group1Options = [
-    { label: "group1-option1", value: "g1o1" },
-    { label: "group1-option2", value: "g1o2" },
-  ];
+const MultiSelect = (props) => {
+  // const group1Options = [
+  //   { label: "group1-option1", value: "g1o1" },
+  //   { label: "group1-option2", value: "g1o2" },
+  // ];
 
-  const group2Options = [
-    { label: "group2-option1", value: "g2o1" },
-    { label: "group2-option2", value: "g2o2" },
-  ];
+  // const group2Options = [
+  //   { label: "group2-option1", value: "g2o1" },
+  //   { label: "group2-option2", value: "g2o2" },
+  // ];
 
-  const groupOptions = [
-    {
-      label: "group1",
-      options: group1Options,
-    },
-    {
-      label: "group2",
-      options: group2Options,
-    },
-  ];
+  // const groupOptions = [
+  //   {
+  //     label: "group1",
+  //     options: group1Options,
+  //   },
+  //   {
+  //     label: "group2",
+  //     options: group2Options,
+  //   },
+  // ];
 
   const customStyles = {
     container: (base) => ({
@@ -38,7 +38,7 @@ const MultiSelect = () => {
         border: "var(--deep-blue) solid 1px",
       },
     }),
-    multiValueRemove: (base, state) => ({
+    multiValueRemove: (base) => ({
       ...base,
       ":hover": {
         backgroundColor: "var(--light-blue)",
@@ -47,21 +47,14 @@ const MultiSelect = () => {
     }),
     option: (base) => ({
       ...base,
-      fontSize: "17px",
+      fontSize: "14px",
       ":hover": {
         backgroundColor: "var(--offwhite)",
       },
     }),
   };
   return (
-    <Select
-      styles={customStyles}
-      isMulti
-      defaultValue={group1Options[0]}
-      options={groupOptions}
-      placeholder="اضف تصنيف"
-      isSearchable={false}
-    />
+    <Select styles={customStyles} isMulti isSearchable={false} {...props} />
   );
 };
 

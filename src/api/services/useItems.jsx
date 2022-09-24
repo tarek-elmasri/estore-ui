@@ -5,14 +5,11 @@ import { getItems } from "..";
 export const GET_ITEMS = "getItems";
 
 const useItems = (params) => {
-  const { data, isLoading } = useQuery(
-    [GET_ITEMS, params],
-    () => getItems(params),
-    { initialData: [] }
+  const { data, isLoading } = useQuery([GET_ITEMS, params], () =>
+    getItems(params)
   );
 
   const items = data?.data?.items;
-  console.log(items);
 
   const itemCategories = (item) => {
     let result = [];
@@ -20,7 +17,7 @@ const useItems = (params) => {
       result.push({
         id: ic.id,
         category_id: ic.category.id,
-        label: ic.categoty.name,
+        label: ic.category.name,
       });
     });
     return result;

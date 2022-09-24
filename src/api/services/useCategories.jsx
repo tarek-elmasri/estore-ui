@@ -13,7 +13,6 @@ const useCategories = (params) => {
   );
 
   const categories = data?.data?.categories;
-  console.log(categories);
 
   return {
     categories,
