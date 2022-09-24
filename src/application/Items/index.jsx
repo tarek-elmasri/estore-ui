@@ -1,10 +1,23 @@
 import React from "react";
 import { ItemCard, Wrapper } from "./style";
 import Textbox from "../../components/Textbox";
+import MultiSelect from "../../components/MultiSelect";
+import useItems from "../../api/services/useItems";
+import Loading from "../../components/Loading";
+import useCategories from "../../api/services/useCategories";
 
 const Items = () => {
+  const { items, isLoading, itemCategories } = useItems();
+  const { categories, isLoading: categoriesIsLoading } = useCategories({
+    primary: false,
+  });
+
   return (
     <Wrapper>
+      <Loading
+        enabled={isLoading || categoriesIsLoading}
+        text="جاري احميل المنتجات"
+      />
       <div className="items__header">
         <div className="header-title">
           <i className="ti ti-apps"></i>
@@ -44,6 +57,9 @@ const Items = () => {
               <div className="btn">
                 <i className="ti ti-infinity"></i>
               </div>
+            </div>
+            <div className="flex">
+              <MultiSelect />
             </div>
           </div>
         </ItemCard>

@@ -10,3 +10,7 @@ export const getStaffActions = (params) => axiosInstance.get('/dashboard/staff_a
 
 // items
 export const getItems = (params) => axiosInstance.get('/dashboard/items', { params })
+
+
+//categories
+export const getCategories = (params) => axiosInstance.get('/dashboard/categories', { params })

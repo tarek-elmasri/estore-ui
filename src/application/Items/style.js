@@ -49,6 +49,7 @@ export const Wrapper = styles.div`
 export const ItemCard = styles.div`
   margin: .5rem; //to be deleted
   border: var(--offwhite) solid 1px;
+  max-width: 32rem;
 
   .item-card__body{
     padding: 1.5rem;
