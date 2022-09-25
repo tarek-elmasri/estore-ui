@@ -54,7 +54,15 @@ const MultiSelect = (props) => {
     }),
   };
   return (
-    <Select styles={customStyles} isMulti isSearchable={false} {...props} />
+    <div dir="ltr" style={{ display: "flex", flexGrow: "1" }}>
+      <Select
+        styles={customStyles}
+        isMulti
+        isClearable={false}
+        isSearchable={false}
+        {...props}
+      />
+    </div>
   );
 };
 

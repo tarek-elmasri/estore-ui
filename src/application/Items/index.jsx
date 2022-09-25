@@ -11,6 +11,7 @@ const Items = () => {
     primary: false,
   });
 
+  console.log(items);
   return (
     <Wrapper>
       <Loading
@@ -30,8 +31,10 @@ const Items = () => {
       </div>
       <div className="items__body">
         {items &&
+          categories &&
           items.map((item) => (
             <ItemCard
+              key={item.id}
               item={item}
               categories={itemCategories(item)}
               categoriesList={categories}
