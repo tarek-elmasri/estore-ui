@@ -55,6 +55,7 @@ const ItemCard = ({ item, categories, categoriesList }) => {
           }
           icon={<i className="ti ti-writing" />}
         />
+
         <div className="flex">
           <Textbox
             name="price"
@@ -66,7 +67,7 @@ const ItemCard = ({ item, categories, categoriesList }) => {
             }
             icon={<i className="ti ti-businessplan" />}
           />
-          <div className="btn">
+          <div className="icon-btn">
             <i className="ti ti-currency-dollar"></i>
           </div>
         </div>
@@ -83,7 +84,7 @@ const ItemCard = ({ item, categories, categoriesList }) => {
             icon={<i className="ti ti-calculator" />}
           />
           <div
-            className="btn"
+            className="icon-btn"
             onClick={() =>
               setItemUpdates((prev) => ({
                 ...prev,
@@ -109,6 +110,16 @@ const ItemCard = ({ item, categories, categoriesList }) => {
             options={formatCategories(categoriesList)}
             onChange={handleCategoriesChange}
           />
+        </div>
+        <div className="flex">
+          <div className="btn">
+            <span>إضافة تصنيف</span>
+          </div>
+        </div>
+        <div className="flex">
+          <div className="btn">
+            <span>بيانات المنتج</span>
+          </div>
         </div>
       </div>
     </Wrapper>

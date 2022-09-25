@@ -31,7 +31,7 @@ const MultiSelect = (props) => {
     }),
     control: (base) => ({
       ...base,
-      fontSize: "14px",
+      //fontSize: "14px",
       border: "var(--offwhite) solid 1px",
       boxShadow: "none",
       ":focus, :hover": {
@@ -47,10 +47,14 @@ const MultiSelect = (props) => {
     }),
     option: (base) => ({
       ...base,
-      fontSize: "14px",
+      //fontSize: "14px",
       ":hover": {
         backgroundColor: "var(--offwhite)",
       },
+    }),
+    multiValue: (base) => ({
+      ...base,
+      backgroundColor: "var(--offwhite)",
     }),
   };
   return (

@@ -39,7 +39,7 @@ export const Wrapper = styles.div`
       grid-template-columns: auto auto;
     };
 
-    @media (min-width: ${globalStyle.screens.xl}){
+    @media (min-width: ${globalStyle.screens.xxl}){
       grid-template-columns: auto auto auto;
     };
   };

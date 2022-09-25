@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import styles, { css } from "styled-components";
-import globalStyles from "../../assets/global-styles";
 
 const Wrapper = styles.div`
   position: relative;
@@ -20,16 +19,15 @@ const Wrapper = styles.div`
         `}
 
   
-  div{
+  > div{
     margin-left: 0.25rem;
     opacity: .5;
   };
-  input{
+  > input{
     width: 100%;
     outline: none;
     appearance: none;
     border: none;
-    font-size: 14px;
   };
   
 

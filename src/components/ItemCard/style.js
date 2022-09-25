@@ -4,7 +4,8 @@ export const Wrapper = styles.div`
   margin: .5rem; //to be deleted
   border: var(--offwhite) solid 1px;
   max-width: 32rem;
-
+  font-size: 14px;
+  
   .item-card__body{
     padding: 1.5rem;
   };
@@ -22,12 +23,24 @@ export const Wrapper = styles.div`
     flex-grow: 1;
   };
   
-  .btn{
+  .icon-btn{
     background-color: var(--offwhite);
     text-align: center;
     padding: 0 0.5rem;
     margin-right: .25rem;
     cursor: pointer;
     border: var(--light-blue) solid 1px;
+    border-radius: 5px;
+  };
+
+  .btn{
+    background-color: var(--offwhite);
+    height: 2.5rem;
+    width: 100%;
+    text-align: center;
+    border: var(--deep-blue) solid 1px;
+    border-radius: 5px;
+    cursor: pointer;
+
   };
 `;

@@ -114,7 +114,7 @@ export const FilterContainer = styles.div`
   padding: 1rem;
   color: var(--offwhite);
 
-  div{
+  > div{
     margin-bottom: 1rem;
   };
 
@@ -122,4 +122,4 @@ export const FilterContainer = styles.div`
     margin-top: .5rem;
   };
 
-`
+`;
